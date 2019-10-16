@@ -32,15 +32,15 @@ class UsuarioDao extends Conexion
         //variable que recibe el resultado del QUERY
         $resultado = self::$conexion->prepare($query);
 
-        //Paso los parametros de $resultado de la conexion
-        $resultado->bindParam(":usuario", $usuario->getUsuario());
-        $resultado->bindParam(":password", $usuario->getPassword());
+        //Paso los parametros de $resultado de la conexion como referencia?
+        $resultado->bindValue(":usuario", $usuario->getUsuario());
+        $resultado->bindValue(":password", $usuario->getPassword());
 
         //Ejecuto la conexion PDO ya validada
         $resultado->execute();
         
         // Si el resultado es correcto, retorna TRUE, si no hay usuario retorna FALSE
-        if(count($resultado)){
+        if($resultado->rowCount() > 0){
             return true;
         }
         return false;
