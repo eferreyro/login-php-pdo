@@ -22,8 +22,7 @@ class UsuarioDao extends Conexion
          * @param object $usuario
          * @return boolean
          */
-        $query = "SELECT 
-        id,nombre,usuario,email,privilegio,fecha_registro
+        $query = "SELECT *
                   FROM usuarios 
                   WHERE usuario = :usuario 
                   AND password = :password";
@@ -41,7 +40,14 @@ class UsuarioDao extends Conexion
         
         // Si el resultado es correcto, retorna TRUE, si no hay usuario retorna FALSE
         if($resultado->rowCount() > 0){
+           $filas = $resultado->fetch(); //convierto resutlado en un arreglo
+           //obtengo informacion de la BD y la compruebo por medio del objeto usuario y password
+           if($filas["usuario"]==$usuario->getUsuario()
+           && $filas["password"]==$usuario->getPassword()
+
+           ){
             return true;
+           }
         }
         return false;
     }
