@@ -1,3 +1,4 @@
-<?php
-echo "<h1>Este es el modulo ADMIN</h1>";
+<?php require "partials/head.php";
+        require "partials/menu.php";
+        require "partials/footer.php";
 ?>

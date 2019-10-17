@@ -14,8 +14,8 @@ $(document).ready(function(){
                   showConfirmButton: false,
                   timer: 1500
                   
-                }),      
-                document.location.href = 'admin.php'; 
+                }),document.location.href = 'admin.php' 
+                 
             }else{
                 Swal.fire({
                     title: 'Error!',
