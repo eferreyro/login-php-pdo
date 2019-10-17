@@ -1,5 +1,7 @@
 <?php
 include '../controlador/UsuarioControlador.php';
+header('Content-type: apllication/json');
+
 $resultado = array();
 if(isset($_POST["txtUsuario"])&&isset($_POST["txtPassword"])){
     $txtUsuario = $_POST["txtUsuario"];
